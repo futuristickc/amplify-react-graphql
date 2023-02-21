@@ -29,7 +29,7 @@ const App = ({ signOut }) => {
     const notesFromAPI = apiData.data.listNotes.items;
     await Promise.all(
       notesFromAPI.map(async (note) => {
-        if (note.Image) {
+        if (note.image) {
           const url = await Storage.get(note.name);
           note.image=url;
         }
@@ -92,7 +92,7 @@ const App = ({ signOut }) => {
           <View 
           name="image"
           as="input"
-          tyoe="file"
+          type="file"
           style={{ alignSelf: "end" }}
           />
           <Button type="submit" variation="primary">
